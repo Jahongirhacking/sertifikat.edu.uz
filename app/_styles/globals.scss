@@ -1,0 +1,140 @@
+@import "./normalize.scss";
+@import "./colors.scss";
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../_assets/fonts/Proxima\ Nova\ Font.otf") format("opentype");
+}
+
+body {
+  font-family: "Proxima Nova";
+}
+
+.main-page {
+  background-color: $primaryBackgroundColor;
+  color: $primaryColor;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // Comment
+  // height: 5646.13px;
+  // background-image: url("../_assets/media/Main-Page.png");
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-position: center;
+
+  .container {
+    max-width: 1168px;
+    width: 100%;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .anchors {
+        display: flex;
+        column-gap: 15px;
+        font-size: 12pt;
+
+        a {
+          font-weight: 500;
+          line-height: 20px;
+          padding: 12px 0;
+          letter-spacing: 0.1px;
+        }
+      }
+
+      .extra {
+        display: flex;
+        column-gap: 15px;
+
+        .ant-btn {
+          background-color: transparent;
+          color: inherit;
+          font-weight: 600;
+          font-size: 10.5pt;
+          padding: 18px 12px;
+          border: 2px solid;
+          border-radius: 6px;
+
+          &.one-id-btn {
+            border-image-source: linear-gradient(
+              90deg,
+              #01a52f 27.5%,
+              #bddb08 100%
+            );
+            border-image-slice: 1;
+            border-radius: 6px;
+          }
+        }
+      }
+    }
+
+    .hero {
+      padding-top: 90px;
+      max-width: 792px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      row-gap: 25px;
+
+      h1 {
+        font-weight: 600;
+        size: 16.5pt;
+        line-height: 28px;
+        letter-spacing: 6px;
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: 36pt;
+        line-height: 54px;
+
+        img {
+          width: 36px;
+          margin: 0 15px;
+          transform: translateY(5px);
+        }
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 16.5pt;
+        line-height: 28px;
+      }
+
+      .auth-btns {
+        display: flex;
+        gap: 10px;
+        margin: auto;
+
+        .btn.ant-btn {
+          max-width: 280px;
+          width: 280px;
+          padding: 24px 10px;
+          color: inherit;
+          font-weight: 600;
+          line-height: 20px;
+          border-radius: 6px;
+          border: none;
+
+          &.login-btn {
+            background-color: #264a6a;
+          }
+
+          &.signup-btn {
+            background: linear-gradient(90deg, #01a52f 27.5%, #bddb08 100%);
+          }
+        }
+      }
+    }
+  }
+}
