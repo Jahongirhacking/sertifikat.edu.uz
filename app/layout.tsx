@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@styles/globals.scss";
+import "@/app/_styles/globals.scss";
 
 export const metadata: Metadata = {
   title: "Sertifikat.edu.uz",
