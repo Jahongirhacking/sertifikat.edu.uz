@@ -8,7 +8,7 @@ const Navbar = ({ Logo, anchors, children }: INavbar) => {
             <ul className="anchors main-page__anchors">
                 {anchors.map((anchor: IAnchor, index) => (
                     <li key={index}>
-                        <a href={anchor.link}>{anchor.text}</a>
+                        <a href={`#${anchor.link}`}>{anchor.text}</a>
                     </li>
                 ))}
             </ul>

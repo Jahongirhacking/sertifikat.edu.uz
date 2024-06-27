@@ -2,11 +2,12 @@ import { ReactElement } from "react"
 
 interface IHeroProps {
     children?: ReactElement | ReactElement[];
+    className: string;
 }
 
-const Hero = ({ children }: IHeroProps) => {
+const Hero = ({ children, className }: IHeroProps) => {
     return (
-        <section className="hero main-page__hero">
+        <section className={className}>
             {children}
         </section>
     )
