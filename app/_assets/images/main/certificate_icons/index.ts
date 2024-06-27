@@ -91,7 +91,7 @@ const listOfHeroIcons: ICertificateIcon[] = [
   },
   {
     key: "book",
-    title: "Huquqshunoslik",
+    title: "Tarix",
   },
   {
     key: "china",
