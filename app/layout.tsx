@@ -13,6 +13,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uz">
+      <head>
+        <link rel="icon" href="./vazirlik-logo-white.png" />
+      </head>
       <body>{children}</body>
     </html>
   );
