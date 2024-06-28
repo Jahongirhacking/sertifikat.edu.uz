@@ -1,8 +1,9 @@
 import { FC, ReactElement } from "react";
 
 export default interface INavbar {
-  Logo: FC;
+  Logo: ReactElement;
   anchors: IAnchor[];
+  theme: "light" | "dark";
   children?: ReactElement | ReactElement[];
 }
 
