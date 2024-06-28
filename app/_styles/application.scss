@@ -1,0 +1,44 @@
+.application-detail {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  padding-bottom: 80px;
+
+  .application-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .ant-divider {
+    margin: 10px 0;
+  }
+
+  .ant-steps-item-title {
+    font-size: 16px;
+    line-height: 24px !important;
+  }
+
+  .main {
+    .ant-row {
+      justify-content: space-between;
+
+      .ant-card-body {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+
+        .content-body {
+          display: flex;
+          flex-direction: column;
+          row-gap: 32px;
+        }
+
+        section {
+          h3 {
+            padding-bottom: 12px;
+          }
+        }
+      }
+    }
+  }
+}

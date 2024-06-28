@@ -1,11 +1,6 @@
 @import "./normalize.scss";
 @import "./colors.scss";
 
-@font-face {
-  font-family: "Proxima Nova";
-  src: url("../_assets/fonts/Proxima\ Nova\ Font.otf") format("opentype");
-}
-
 @mixin makeBorder($radius, $length, $backcolor, $frontcolor) {
   border-radius: $radius;
 
@@ -35,11 +30,10 @@
 }
 
 body {
-  font-family: "Proxima Nova";
-  background-color: $primaryBackgroundColor;
-  color: $primaryColor;
-
   .main-page {
+    background-color: $primaryBackgroundColor !important;
+    color: $primaryColor !important;
+
     min-height: 100dvh;
     width: 100%;
     display: flex;
@@ -53,60 +47,6 @@ body {
       display: flex;
       flex-direction: column;
       row-gap: 90px;
-
-      .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-
-        .anchors {
-          display: flex;
-          column-gap: 16px;
-          font-size: 12pt;
-
-          a {
-            font-weight: 500;
-            line-height: 20px;
-            padding: 12px 0;
-            letter-spacing: 0.1px;
-          }
-        }
-
-        .extra {
-          display: flex;
-          column-gap: 12px;
-
-          .ant-btn {
-            position: relative;
-            background-color: transparent;
-            color: inherit;
-            font-weight: 600;
-            font-size: 10.5pt;
-            padding: 18px 12px;
-            border: 2px solid;
-            border-radius: 6px;
-
-            &.one-id-btn {
-              border: none;
-              @include makeBorder(
-                6px,
-                2px,
-                $greenGradient,
-                $primaryBackgroundColor
-              );
-
-              &::after {
-                transition: background 0.4s ease;
-              }
-
-              &:hover::after {
-                background: $greenGradient;
-              }
-            }
-          }
-        }
-      }
 
       .intro {
         display: flex;
@@ -226,7 +166,7 @@ body {
             transition: transform 0.4s ease;
 
             &:hover {
-              transform: scale(1.01);
+              transform: scale(1.03);
             }
 
             &.card-1 {
@@ -610,6 +550,49 @@ body {
                   display: none;
                 }
               }
+            }
+          }
+        }
+      }
+
+      .faq {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        row-gap: 64px;
+
+        h2 {
+          font-size: 48px;
+          line-height: 56px;
+        }
+
+        .ant-collapse {
+          color: $primaryColor !important;
+          text-align: left;
+          background-color: rgba(#f2f5f7, 6%);
+          border: none;
+          padding: 16px 40px;
+          max-width: 792px;
+
+          .ant-collapse-item {
+            padding: 24px 0;
+            font-family: "Proxima Nova";
+            border-color: rgba(#f2f5f7, 12%);
+
+            .ant-collapse-header {
+              color: $primaryColor;
+              font-size: 18px;
+              line-height: 22px;
+              font-weight: 600;
+            }
+
+            .ant-collapse-content {
+              background-color: transparent;
+              color: rgba($primaryColor, 80%);
+              border: none;
+              font-size: 16px;
+              line-height: 20px;
             }
           }
         }

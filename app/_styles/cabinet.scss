@@ -1,0 +1,113 @@
+@import "../_styles/normalize.scss";
+@import "../_styles/colors.scss";
+
+body {
+  .cabinet {
+    background-color: white;
+    color: black;
+
+    min-height: 100dvh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      padding: 24px 0;
+      display: flex;
+      flex-direction: column;
+      row-gap: 40px;
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        row-gap: 24px;
+        width: 100%;
+        padding-bottom: 90px;
+
+        h2 {
+          font-size: 30px;
+          line-height: 38px;
+        }
+
+        .tab-content {
+          .ant-divider.content-divider {
+            margin: 0;
+          }
+
+          .content-head {
+            h3 {
+              font-size: 24px;
+              line-height: 32px;
+            }
+          }
+        }
+
+        .personal-info {
+          display: flex;
+          flex-direction: column;
+          row-gap: 24px;
+
+          .content-body {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+
+        .applications {
+          display: flex;
+          flex-direction: column;
+          row-gap: 24px;
+
+          .content-body {
+            display: flex;
+            flex-direction: column;
+            row-gap: 16px;
+
+            .ant-card {
+              &-body {
+                .card__head {
+                  .application-title {
+                    font-size: 16px;
+                    line-height: 24px;
+                  }
+                }
+                .categories {
+                  display: flex;
+                  flex-direction: column;
+                  row-gap: 8px;
+                  font-size: 14px;
+                  line-height: 22px;
+
+                  span {
+                    color: rgba(#000000, 0.5);
+                  }
+                }
+
+                .ant-tag {
+                  font-size: 12px;
+                  line-height: 16px;
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+        }
+
+        .certificates {
+          .content-body {
+            display: flex;
+            flex-direction: column;
+            row-gap: 16px;
+          }
+
+          .ant-tag {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
