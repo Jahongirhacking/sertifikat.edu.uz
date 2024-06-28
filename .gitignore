@@ -1,4 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+#  big files
+/app/_assets/media
 
 # dependencies
 /node_modules
@@ -34,3 +36,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+declarations.d.ts

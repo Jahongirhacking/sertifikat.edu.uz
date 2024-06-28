@@ -1,0 +1,93 @@
+@import "../_styles/colors.scss";
+
+footer {
+  background-color: $primaryBackgroundColor;
+  color: $primaryColor;
+  width: 100%;
+
+  .footer__container {
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    max-width: 1168px;
+    width: 100%;
+    margin: auto;
+
+    .contact-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+
+      .logo-container {
+        display: flex;
+        flex-direction: column;
+        row-gap: 24px;
+        max-width: 400px;
+        padding-right: 80px;
+
+        p {
+          color: rgba($primaryColor, 56%);
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+
+      .contact-details {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+
+        @mixin columnPadding($size) {
+          display: flex;
+          flex-direction: column;
+          row-gap: $size;
+
+          a {
+            font-size: 18px;
+            line-height: 20px;
+            font-weight: 600;
+          }
+
+          p {
+            color: rgba($primaryColor, 56%);
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+
+        .phone {
+          max-width: 320px;
+          @include columnPadding(8px);
+        }
+
+        .social {
+          max-width: 320px;
+          display: flex;
+          flex-direction: column;
+          row-gap: 24px;
+
+          .telegram {
+            @include columnPadding(8px);
+          }
+
+          .icons {
+            display: flex;
+            gap: 16px;
+            img {
+              width: 64px;
+            }
+          }
+        }
+      }
+    }
+    .footer__info {
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}

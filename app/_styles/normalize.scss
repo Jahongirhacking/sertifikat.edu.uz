@@ -1,12 +1,23 @@
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../_assets/fonts/Proxima\ Nova\ Font.otf") format("opentype");
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   width: 100dvw !important;
   overflow-x: hidden;
+  font-family: "Proxima Nova";
+  min-height: 100dvh;
 }
 
 ul {

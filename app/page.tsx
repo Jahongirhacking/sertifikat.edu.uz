@@ -1,21 +1,27 @@
 "use client";
 
-import { Button, Flex, Radio, RadioChangeEvent, Tooltip } from "antd";
-import { Logo, Navbar, DropdownLang, Hero, AuthButtons, Card, Step } from "./_components/main_page";
+import { useState } from "react";
+import { Button, Collapse, CollapseProps, Flex, Radio, RadioChangeEvent, Tooltip } from "antd";
+import { DropdownLang, Hero, AuthButtons, Card, Step } from "@/app/_components/main_page";
+import Logo from "./_components/Logo";
+import Navbar from "@/app/_components/Navbar";
+import YoutubeEmbed from "@/app/_components/YoutubeEmbed";
 import { IAnchor } from "./_types/main_page/INavbar";
+import { IOption } from "./_types/main_page/ICertificateTable";
 import IHeroIcon from "./_types/main_page/ICertificateIcon";
 import Image from "next/image";
+import CertificateLists from "./_components/main_page/CertificateLists";
+import CertificateTable from "./_components/main_page/CertificateTable";
 // Images for main page
 import BadgeIcon from "@/app/_assets/images/main/award.png";
 import * as CertificateIcons from "@/app/_assets/images/main/certificate_icons";
 import listOfCertificateIcons from "@/app/_assets/images/main/certificate_icons";
 import WorldMapImage from "@/app/_assets/images/main/world-map.png";
 import * as CardIcons from "@/app/_assets/images/main/card_icons/";
-import YoutubeEmbed from "./_components/YoutubeEmbed";
-import { useState } from "react";
-import CertificateLists from "./_components/main_page/CertificateLists";
-import CertificateTable from "./_components/main_page/CertificateTable";
-import { IOption } from "./_types/main_page/ICertificateTable";
+import { PlusOutlined } from "@ant-design/icons";
+import * as SocialIcons from "@/app/_assets/images/main/social_networks"
+import Footer from "./_components/Footer";
+
 type IRadio = "language" | "science";
 
 export default function MainPage() {
@@ -126,14 +132,39 @@ export default function MainPage() {
     },
   ]
 
+  const collapseText = "Amal qilish muddati cheklanmagan (belgilanmagan) sertifikatlardan sertifikat olingan kundan boshlab uch yildan ko‘p bo‘lmagan vaqt mobaynidaqonunchilik hujjatlarida belgilangan tartibda imtiyoz va ustamalar qo‘llashda foydalaniladi."
+  const collapseItems: CollapseProps['items'] = [
+    {
+      key: '1',
+      label: 'Amal qilish muddati cheklanmagan (belgilanmagan) sertifikatlardan necha yil mobaynida imtiyoz va ustamalar qo‘llashda foydalanish mumkin?',
+      children: <p>{collapseText}</p>,
+    },
+    {
+      key: '2',
+      label: 'Oliy taʼlim tizimida faoliyat yuritayotgan professor-o‘qituvchilarga ustama belgilashda qo‘llaniladigan xorijiy tillarni bilish darajasini baholovchi milliy va xalqaro tan olingan sertifikatlar mashg‘ulot olib boruvchi faniga mos bo‘lishi zarurmi?',
+      children: <p>{collapseText}</p>,
+    },
+    {
+      key: '3',
+      label: 'Umumiy o‘rta taʼlim muassasalariga xorijiy tillar oʻqituvchilari lavozimlariga ishga yangi qabul qilinayotgan talabgorlardan qanday darajaga ega sertifikatlar talab qilinadi?',
+      children: <p>{collapseText}</p>,
+    },
+    {
+      key: '4',
+      label: 'Xorijiy tillar bo‘yicha sertifikatlarga imtiyoz va ustamalar qo‘llashdan oldin ularni verifikatsiyadan o‘tkazish tartibi qanday amalga oshiriladi?',
+      children: <p>{collapseText}</p>,
+    },
+  ];
+
   const [activeRadioButton, setActiveRadioButton] = useState<IRadio>("language")
 
   return (
     <div className="main-page">
       <div className="container main-page__container">
         <Navbar
-          Logo={Logo}
+          Logo={<Logo theme="dark" />}
           anchors={anchors}
+          theme="dark"
         >
           <DropdownLang langs={["O‘zbekcha", "Русский", "English", "Deutsch"]} />
           <Button className="one-id-btn">One ID orqali kirish</Button>
@@ -371,8 +402,20 @@ export default function MainPage() {
         {/* FAQ section */}
         <section id={anchors[2].link} className={anchors[2].link}>
           <h2>Ko‘p beriladigan savollar</h2>
+          <Collapse
+            items={collapseItems}
+            defaultActiveKey={'1'}
+            expandIcon={({ isActive }) => (
+              isActive
+                ? <PlusOutlined style={{ transform: "rotate(45deg)" }} />
+                : <PlusOutlined />
+            )}
+            expandIconPosition="right"
+          />
         </section>
 
+        {/* Footer section */}
+        <Footer id={anchors[3].link} className={anchors[3].link} />
       </div>
     </div>
   );
