@@ -1,10 +1,10 @@
 import INavbar, { IAnchor } from "@/app/_types/main_page/INavbar";
+import "./Navbar.scss";
 
-
-const Navbar = ({ Logo, anchors, children }: INavbar) => {
+const Navbar = ({ Logo, anchors, theme, children }: INavbar) => {
     return (
-        <nav className="nav main-page__nav">
-            <Logo />
+        <nav className={`nav main-page__nav nav-${theme}`}>
+            {Logo}
             <ul className="anchors main-page__anchors">
                 {anchors.map((anchor: IAnchor, index) => (
                     <li key={index}>
