@@ -5,6 +5,7 @@ import {
   IScienceTable,
 } from "../_types/main_page/ICertificateTable";
 import { IAnchor } from "../_types/main_page/INavbar";
+import IInfo from "../_types/cabinet/IInfo";
 
 interface ITable<T> extends IOption {
   table: {
@@ -308,5 +309,95 @@ export const collapseItems: CollapseProps["items"] = [
     label:
       "Xorijiy tillar bo‘yicha sertifikatlarga imtiyoz va ustamalar qo‘llashdan oldin ularni verifikatsiyadan o‘tkazish tartibi qanday amalga oshiriladi?",
     children: collapseText,
+  },
+];
+
+export const certificateInfo: IInfo[] = [
+  {
+    left: "Chet tili:",
+    right: {
+      text: "Ingliz tili",
+      href: "",
+    },
+  },
+  {
+    left: "Sertifikat turi:",
+    right: {
+      text: "Cambridge Assessment English Linguaskill",
+      href: "",
+    },
+  },
+  {
+    left: "Darajasi:",
+    right: {
+      text: "22DTM1003471ES",
+      href: "",
+    },
+  },
+  {
+    left: "Seriya raqami:",
+    right: {
+      text: "A2",
+      href: "",
+    },
+  },
+  {
+    left: "Amal qilish muddati:",
+    right: {
+      text: "2022-12-27 dan 2025-12-26 gacha",
+      href: "",
+    },
+  },
+  {
+    left: "Hujjat nusxasi:",
+    right: {
+      text: "Yuklab olish",
+      href: "#",
+    },
+  },
+];
+
+export const professionInfo: IInfo[] = [
+  {
+    left: "Sertifikat qo'shishdan maqsadingizni tanlang:",
+    right: {
+      text: "Ustama (Xodim, O'qituvchi)",
+      href: "",
+    },
+  },
+  {
+    left: "Ish joyingizni tanlang:",
+    right: {
+      text: "Umumiy o'rta ta'lim muassasi (Maktab)",
+      href: "",
+    },
+  },
+  {
+    left: "Ish joyi joylashgan (Viloyati):",
+    right: {
+      text: "Buxoro",
+      href: "",
+    },
+  },
+  {
+    left: "Ish joyi joylashgan (Tumani):",
+    right: {
+      text: "Vobkent",
+      href: "",
+    },
+  },
+  {
+    left: "Ish joyi nomi:",
+    right: {
+      text: "Milliy universitet",
+      href: "",
+    },
+  },
+  {
+    left: "Lavozim:",
+    right: {
+      text: "O'qituvchi",
+      href: "",
+    },
   },
 ];
