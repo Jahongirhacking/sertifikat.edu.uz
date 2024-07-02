@@ -59,7 +59,7 @@ const CertificateInfoForm = () => {
                             : "Fan sertifikati"
                     }
                 </Typography.Title>
-                <Radio.Group onChange={(e) => setCertificateType(e.target.value)}>
+                <Radio.Group onChange={(e) => setCertificateType(e.target.value)} defaultValue={certificateType}>
                     <Radio.Button value="language">Chet tili sertifikat</Radio.Button>
                     <Radio.Button value="science">Fan sertifikat</Radio.Button>
                 </Radio.Group>
