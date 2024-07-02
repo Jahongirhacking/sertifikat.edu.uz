@@ -1,10 +1,10 @@
 @import "./colors.scss";
+@import "../_components/Info.scss";
 
 .application-detail {
   display: flex;
   flex-direction: column;
   row-gap: 30px;
-  padding-bottom: 80px;
 
   .application-title {
     font-size: 20px;
@@ -33,6 +33,14 @@
           display: flex;
           flex-direction: column;
           row-gap: 32px;
+
+          .profession-info {
+            @include InfoMixin;
+          }
+
+          .language-certificate-info {
+            @include InfoMixin;
+          }
         }
 
         section {
@@ -62,6 +70,30 @@
       color: lime !important;
       border: 1px solid lime;
       background-color: white !important;
+    }
+  }
+}
+
+.application-detail {
+  @media screen and (max-width: 800px) {
+    main {
+      .steps,
+      .info {
+        max-width: 100%;
+      }
+
+      .steps {
+        order: 1;
+      }
+
+      .info {
+        order: 2;
+      }
+
+      & > .ant-row {
+        flex-direction: column;
+        row-gap: 15px;
+      }
     }
   }
 }
