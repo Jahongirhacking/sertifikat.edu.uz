@@ -15,7 +15,7 @@ body {
     .container {
       max-width: 1200px;
       width: 100%;
-      padding: 24px 0;
+      padding: 24px 15px;
       display: flex;
       flex-direction: column;
       row-gap: 40px;
@@ -30,6 +30,43 @@ body {
         h2 {
           font-size: 30px;
           line-height: 38px;
+        }
+
+        .ant-row {
+          justify-content: space-between;
+          .menu-items {
+            display: flex;
+            flex-direction: column;
+            row-gap: 15px;
+
+            button {
+              width: 100%;
+            }
+
+            .ant-divider {
+              margin: 5px 0;
+            }
+          }
+
+          @media screen and (max-width: 960px) {
+            .menu-items {
+              button {
+                span.menu-text {
+                  display: none;
+                }
+                span {
+                  margin: auto;
+                }
+              }
+            }
+          }
+          .ant-tabs-tab-btn {
+            width: 100%;
+
+            button {
+              width: 100%;
+            }
+          }
         }
 
         .tab-content {
@@ -49,6 +86,11 @@ body {
           display: flex;
           flex-direction: column;
           row-gap: 24px;
+
+          .ant-alert {
+            max-height: 250px;
+            overflow: auto;
+          }
 
           .content-body {
             display: flex;
