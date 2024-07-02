@@ -114,3 +114,45 @@
     }
   }
 }
+
+@media screen and (min-width: 1200px) {
+  .nav {
+    .drawer-btn {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .ant-drawer .buttons {
+    display: none;
+  }
+
+  .nav {
+    .anchors {
+      display: none !important;
+    }
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .nav {
+    .logo {
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav {
+    .buttons {
+      display: none;
+    }
+  }
+
+  .ant-drawer .buttons {
+    display: flex;
+  }
+}

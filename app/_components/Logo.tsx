@@ -6,8 +6,8 @@ import Link from 'next/link';
 
 const Logo = ({ theme }: { theme?: "light" | "dark" }) => {
     return (
-        <div className={style.logo}>
-            <Link href='./'>
+        <div className={`logo ${style.logo}`}>
+            <Link href='/'>
                 <Image
                     src={theme === "light" ? LogoImageLightTheme : LogoImageDarkTheme}
                     alt='Vazirlik logotip rasmi'

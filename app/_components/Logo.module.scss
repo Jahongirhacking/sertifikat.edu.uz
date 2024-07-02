@@ -16,3 +16,12 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .logo {
+    img {
+      width: 48px !important;
+      height: 48px !important;
+    }
+  }
+}
