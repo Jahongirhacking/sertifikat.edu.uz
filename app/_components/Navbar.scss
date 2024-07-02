@@ -93,6 +93,16 @@
           }
         }
       }
+
+      .drawer-btn {
+        color: $primaryBackgroundColor !important;
+        border-color: $primaryBackgroundColor !important;
+
+        &:hover {
+          color: $primaryBackgroundColor !important;
+          border-color: $primaryBackgroundColor !important;
+        }
+      }
     }
   }
 
