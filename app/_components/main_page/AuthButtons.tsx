@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Form, Input, Modal, Space, Tabs, TabsProps } from "antd";
+import { Button, Form, Input, Modal, Space, Tabs, TabsProps, Typography } from "antd";
 import "./AuthButtons.scss";
 import { useState } from "react";
 import SignInForm from "../forms/SignInForm";
@@ -17,18 +17,22 @@ const AuthButtons = () => {
     const [showModalSMS, setShowModalSMS] = useState(false);
     const [activeTab, setActiveTab] = useState<"signIn" | "signUp">("signIn")
 
+    const handleModalSMS = () => {
+        setShowModal(false);
+        setShowModalSMS(true);
+    }
+
     const items: TabsProps['items'] = [
         {
             key: 'signIn',
-            label: 'Kirish',
+            label: <Typography.Title level={2}>Kirish</Typography.Title>,
             children: <SignInForm />,
         },
         {
             key: 'signUp',
-            label: 'Ro‘yxatdan o‘tish',
+            label: <Typography.Title level={2}>Ro‘yxatdan o‘tish</Typography.Title>,
             children: <SignUpForm
-                setShowModalSMS={setShowModalSMS}
-                setShowModal={setShowModal}
+                showModalSMS={() => handleModalSMS()}
             />,
         },
     ];
@@ -52,7 +56,9 @@ const AuthButtons = () => {
 
             <Modal
                 open={showModal}
-                onCancel={() => setShowModal(false)} footer={null}
+                onCancel={() => setShowModal(false)}
+                footer={null}
+                className="signIn-signUp-modal"
             >
                 <Tabs
                     activeKey={activeTab}
@@ -84,7 +90,7 @@ const AuthButtons = () => {
                         <Input placeholder="SMS kodni kiriting" />
                     </Form.Item>
 
-                    <Link href="#" style={{ display: "inline-block", paddingBottom: "15px" }}>
+                    <Link href="#" style={{ display: "inline-block", paddingBottom: "15px", color: "#1677FF" }}>
                         SMS kodni qayta yuborish
                     </Link>
 
@@ -98,7 +104,7 @@ const AuthButtons = () => {
                                 type="primary"
                                 htmlType="submit"
                             >
-                                Davom ettirish
+                                Tasdiqlash
                             </Button>
                         </Link>
                         <Button disabled>
