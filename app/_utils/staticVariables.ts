@@ -401,3 +401,24 @@ export const professionInfo: IInfo[] = [
     },
   },
 ];
+
+export const countries = [
+  "O'zbekiston",
+  "Tojikiston",
+  "Qozog'iston",
+  "Qirg'iziston",
+  "Turkmaniston",
+];
+
+export const nationalities = ["o'zbek", "tojik", "qozoq", "qirg'iz", "turkman"];
+
+export const regions = [
+  {
+    name: "Toshkent shahri",
+    districts: ["Chilonzor tumani", "Mirzo Ulug'bek tumani", "Sergeli tumani"],
+  },
+  {
+    name: "Qashqadaryo viloyati",
+    districts: ["G'uzor tumani", "Qarshi tumani", "Yakkabog' tumani"],
+  },
+];
