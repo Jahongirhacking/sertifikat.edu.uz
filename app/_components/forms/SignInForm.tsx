@@ -21,7 +21,7 @@ const SignInForm = () => {
     return (
         <Form
             name="sign-in"
-            initialValues={{ remember: true }}
+            initialValues={{ remember: false }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
@@ -31,7 +31,7 @@ const SignInForm = () => {
                 name="phone"
                 rules={[{ required: true, message: 'Iltimos telefon raqamingizni kiriting!' }]}
             >
-                <Input placeholder="+998" />
+                <Input placeholder="+998" type="tel" />
             </Form.Item>
 
             <Form.Item<SignInFieldType>
@@ -45,11 +45,10 @@ const SignInForm = () => {
             <Flex justify="space-between" gap={15} align="center">
                 <Form.Item<SignInFieldType>
                     name="remember"
-                    valuePropName="checked"
                 >
                     <Checkbox>Saqlab qolish</Checkbox>
                 </Form.Item>
-                <Link href="#">
+                <Link href="#" style={{ color: "#1677FF" }}>
                     Parolni tiklash
                 </Link>
             </Flex>
