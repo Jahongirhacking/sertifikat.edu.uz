@@ -1,6 +1,8 @@
 import { PlusOutlined, RetweetOutlined } from "@ant-design/icons"
 import { Button, Card, Col, Divider, Flex, Row, Tag } from "antd"
 import "./Certificates.scss";
+import Info from "../Info";
+import { certificateInfo } from "@/app/_utils/staticVariables";
 
 const Certificates = () => {
     return (
@@ -26,32 +28,7 @@ const Certificates = () => {
                     </Flex>
                     <Divider />
                     <div className="certificates-information">
-                        <Row className="certificates-row">
-                            <Col span={10} className="left-text"><span>Chet tili:</span></Col>
-                            <Col span={14} className="right-text">Ingliz tili</Col>
-                        </Row>
-                        <Row className="certificates-row">
-                            <Col span={10} className="left-text"><span>Sertifikat turi:</span></Col>
-                            <Col span={14} className="right-text">Cambridge Assessment English Linguaskill</Col>
-                        </Row>
-                        <Row className="certificates-row">
-                            <Col span={10} className="left-text"><span>Darajasi:</span></Col>
-                            <Col span={14} className="right-text">A2</Col>
-                        </Row>
-                        <Row className="certificates-row">
-                            <Col span={10} className="left-text"><span>Seriya raqami:</span></Col>
-                            <Col span={14} className="right-text">22DTM1003471ES</Col>
-                        </Row>
-                        <Row className="certificates-row">
-                            <Col span={10} className="left-text"><span>Amal qilish muddati:</span></Col>
-                            <Col span={14} className="right-text">2022-12-27 dan 2025-12-26 gacha</Col>
-                        </Row>
-                        <Row className="certificates-row">
-                            <Col span={10} className="left-text"><span>Hujjat nusxasi:</span></Col>
-                            <Col span={14} className="right-text">
-                                <a href="#">Yuklab olish</a>
-                            </Col>
-                        </Row>
+                        <Info items={certificateInfo} />
                     </div>
                 </Card>
 
@@ -65,32 +42,7 @@ const Certificates = () => {
                     </Flex>
                     <Divider />
                     <div className="certificates-information">
-                        <Row className="certificates-row">
-                            <Col span={10} className="left-text"><span>Chet tili:</span></Col>
-                            <Col span={14} className="right-text">Ingliz tili</Col>
-                        </Row>
-                        <Row className="certificates-row">
-                            <Col span={10} className="left-text"><span>Sertifikat turi:</span></Col>
-                            <Col span={14} className="right-text">Cambridge Assessment English Linguaskill</Col>
-                        </Row>
-                        <Row className="certificates-row">
-                            <Col span={10} className="left-text"><span>Darajasi:</span></Col>
-                            <Col span={14} className="right-text">A2</Col>
-                        </Row>
-                        <Row className="certificates-row">
-                            <Col span={10} className="left-text"><span>Seriya raqami:</span></Col>
-                            <Col span={14} className="right-text">22DTM1003471ES</Col>
-                        </Row>
-                        <Row className="certificates-row">
-                            <Col span={10} className="left-text"><span>Amal qilish muddati:</span></Col>
-                            <Col span={14} className="right-text">2022-12-27 dan 2025-12-26 gacha</Col>
-                        </Row>
-                        <Row className="certificates-row">
-                            <Col span={10} className="left-text"><span>Hujjat nusxasi:</span></Col>
-                            <Col span={14} className="right-text">
-                                <a href="#">Yuklab olish</a>
-                            </Col>
-                        </Row>
+                        <Info items={certificateInfo} />
                     </div>
                 </Card>
             </div>
@@ -99,38 +51,4 @@ const Certificates = () => {
     )
 }
 
-const CertificateInfoCard = () => {
-    return (
-        <div className="certificates-information">
-            <Row className="certificates-row">
-                <Col span={10} className="left-text"><span>Chet tili:</span></Col>
-                <Col span={14} className="right-text">Ingliz tili</Col>
-            </Row>
-            <Row className="certificates-row">
-                <Col span={10} className="left-text"><span>Sertifikat turi:</span></Col>
-                <Col span={14} className="right-text">Cambridge Assessment English Linguaskill</Col>
-            </Row>
-            <Row className="certificates-row">
-                <Col span={10} className="left-text"><span>Darajasi:</span></Col>
-                <Col span={14} className="right-text">A2</Col>
-            </Row>
-            <Row className="certificates-row">
-                <Col span={10} className="left-text"><span>Seriya raqami:</span></Col>
-                <Col span={14} className="right-text">22DTM1003471ES</Col>
-            </Row>
-            <Row className="certificates-row">
-                <Col span={10} className="left-text"><span>Amal qilish muddati:</span></Col>
-                <Col span={14} className="right-text">2022-12-27 dan 2025-12-26 gacha</Col>
-            </Row>
-            <Row className="certificates-row">
-                <Col span={10} className="left-text"><span>Hujjat nusxasi:</span></Col>
-                <Col span={14} className="right-text">
-                    <a href="#">Yuklab olish</a>
-                </Col>
-            </Row>
-        </div>
-    )
-}
-
 export default Certificates;
-export { CertificateInfoCard };
