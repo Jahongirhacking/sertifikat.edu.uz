@@ -5,9 +5,9 @@ import "./Certificates.scss";
 const Certificates = () => {
     return (
         <div className="certificates tab-content">
-            <Flex justify="space-between" className="content-head">
+            <Flex justify="space-between" className="content-head" wrap gap={10}>
                 <h3>Sertifikatlarim</h3>
-                <Flex gap={12}>
+                <Flex gap={12} wrap>
                     <Button icon={<RetweetOutlined />}>Milliy sertifikat (CEFR)</Button>
                     <Button type="primary" icon={<PlusOutlined />}>Sertifikat qo’shish</Button>
                 </Flex>
