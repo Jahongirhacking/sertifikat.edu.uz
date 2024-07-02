@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import "@/app/_styles/cabinet.scss";
 import Navbar from "@/app/_components/Navbar";
-import { DropdownLang } from "@/app/_components/main_page";
-import Logo from "@/app/_components/Logo";
-import { Button } from "antd";
 import Footer from "@/app/_components/Footer";
 import { IAnchor } from "@/app/_types/main_page/INavbar";
 
@@ -45,13 +42,9 @@ export default function RootLayout({
                 <div className="cabinet">
                     <div className="container cabinet__container">
                         <Navbar
-                            Logo={<Logo theme="light" />}
-                            anchors={anchors}
                             theme="light"
-                        >
-                            <DropdownLang langs={["O‘zbekcha", "Русский", "English", "Deutsch"]} />
-                            <Button className="profile-btn">AA</Button>
-                        </Navbar>
+                            isSignedIn={true}
+                        />
                         {children}
                     </div>
                     <Footer id="contact" className="contact" />

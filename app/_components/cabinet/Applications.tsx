@@ -1,21 +1,23 @@
 import { PlusOutlined } from "@ant-design/icons"
 import { Button, Card, Divider, Flex, Tag } from "antd"
 import Link from "next/link"
-const defaultPath = "./cabinet/application/123456";
+const defaultPath = "./cabinet/application/id/123456";
 
 const Applications = () => {
     return (
         <div className="applications tab-content">
-            <Flex justify="space-between" className="content-head">
+            <Flex justify="space-between" className="content-head" wrap gap={10}>
                 <h3>Arizalarim</h3>
-                <Button type="primary" icon={<PlusOutlined />}>Ariza yuborish</Button>
+                <Link href={"/cabinet/application/create-new"}>
+                    <Button type="primary" icon={<PlusOutlined />}>Ariza yuborish</Button>
+                </Link>
             </Flex>
             <Divider className="content-divider" />
             <div className="content-body">
                 <Card hoverable>
-                    <Flex justify="space-between" className="card__head">
+                    <Flex justify="space-between" className="card__head" wrap gap={10}>
                         <h4 className="application-title">Ustama uchun ariza</h4>
-                        <Flex className="application-info" gap={24}>
+                        <Flex className="application-info" gap={24} wrap>
                             <label>
                                 <span>Ariza ID: </span>
                                 <strong>123456</strong>
@@ -27,7 +29,7 @@ const Applications = () => {
                         </Flex>
                     </Flex>
                     <Divider />
-                    <Flex justify="space-between" align="flex-start">
+                    <Flex justify="space-between" align="flex-start" wrap gap={10}>
                         <div className="categories">
                             <strong>Umumiy o’rta ta’lim muassasasi (Maktab)</strong>
                             <span>Ingliz tili | Cambridge Assessment English Linguaskill | A2</span>
@@ -43,9 +45,9 @@ const Applications = () => {
                 </Card>
 
                 <Card hoverable>
-                    <Flex justify="space-between" className="card__head">
+                    <Flex justify="space-between" className="card__head" wrap gap={10}>
                         <h4 className="application-title">Ustama uchun ariza</h4>
-                        <Flex className="application-info" gap={24}>
+                        <Flex className="application-info" gap={24} wrap>
                             <label>
                                 <span>Ariza ID: </span>
                                 <strong>123456</strong>
@@ -57,7 +59,7 @@ const Applications = () => {
                         </Flex>
                     </Flex>
                     <Divider />
-                    <Flex justify="space-between" align="flex-start">
+                    <Flex justify="space-between" align="flex-start" wrap gap={10}>
                         <div className="categories">
                             <strong>Umumiy o’rta ta’lim muassasasi (Maktab)</strong>
                             <span>Ingliz tili | Cambridge Assessment English Linguaskill | A2</span>
@@ -74,9 +76,9 @@ const Applications = () => {
                 </Card>
 
                 <Card hoverable>
-                    <Flex justify="space-between" className="card__head">
+                    <Flex justify="space-between" className="card__head" wrap gap={10}>
                         <h4 className="application-title">Ustama uchun ariza</h4>
-                        <Flex className="application-info" gap={24}>
+                        <Flex className="application-info" gap={24} wrap>
                             <label>
                                 <span>Ariza ID: </span>
                                 <strong>123456</strong>
@@ -88,7 +90,7 @@ const Applications = () => {
                         </Flex>
                     </Flex>
                     <Divider />
-                    <Flex justify="space-between" align="flex-start">
+                    <Flex justify="space-between" align="flex-start" wrap gap={10}>
                         <div className="categories">
                             <strong>Umumiy o’rta ta’lim muassasasi (Maktab)</strong>
                             <span>Ingliz tili | Cambridge Assessment English Linguaskill | A2</span>

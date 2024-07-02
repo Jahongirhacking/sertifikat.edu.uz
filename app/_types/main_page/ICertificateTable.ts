@@ -14,7 +14,7 @@ export interface IOption {
 }
 
 export interface ILanguageTable {
-  key: number;
+  key: string;
   name: string;
   a1: string;
   a2: string;
@@ -25,7 +25,7 @@ export interface ILanguageTable {
 }
 
 export interface IScienceTable {
-  key: number;
+  key: string;
   name: string;
   type: string;
   max: string;

@@ -14,7 +14,7 @@ const PersonalInfo = () => {
                 showIcon
                 closable
             />
-            <Flex justify="space-between" className="content-head">
+            <Flex justify="space-between" className="content-head" wrap>
                 <h3>Shaxsiy ma’lumotlar</h3>
                 <Flex gap={12}>
                     <Button icon={<EditOutlined />}>Ma’lumotlarni yangilash</Button>

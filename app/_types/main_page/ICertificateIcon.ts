@@ -1,6 +1,9 @@
+import { StaticImageData } from "next/image";
+
 export default interface ICertificateIcon {
   key: ICertificateKey;
   title: string;
+  img: StaticImageData;
 }
 
 export type ICertificateKey =

@@ -1,3 +1,5 @@
+@import "./colors.scss";
+
 @font-face {
   font-family: "Proxima Nova";
   src: url("../_assets/fonts/Proxima\ Nova\ Font.otf") format("opentype");
@@ -34,5 +36,32 @@ a {
 
   &:hover {
     transform: scale(1.05);
+  }
+}
+
+.ant-drawer-content {
+  background: $primaryBackgroundColor !important;
+  color: $primaryColor;
+
+  .anchors {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ant-drawer-close {
+    color: $primaryColor;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      color: $primaryColor;
+      background-color: transparent;
+      width: 100%;
+      max-width: 200px;
+    }
   }
 }

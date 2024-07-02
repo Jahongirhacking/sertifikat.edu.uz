@@ -26,7 +26,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/(routes)/cabinet/application/[id]"
+    "app/(routes)/cabinet/application/[id]",
+    "app/(routes)/cabinet/application/create-new"
   ],
   "exclude": ["node_modules"]
 }
