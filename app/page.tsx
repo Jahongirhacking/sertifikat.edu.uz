@@ -1,210 +1,61 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Collapse, CollapseProps, Flex, Radio, RadioChangeEvent, Tooltip } from "antd";
-import { DropdownLang, Hero, AuthButtons, Card, Step } from "@/app/_components/main_page";
-import Logo from "./_components/Logo";
+import { Collapse, Flex, FloatButton, Radio, RadioChangeEvent, Tooltip } from "antd";
+import { Hero, Card, Step } from "@/app/_components/main_page";
 import Navbar from "@/app/_components/Navbar";
 import YoutubeEmbed from "@/app/_components/YoutubeEmbed";
-import { IAnchor } from "./_types/main_page/INavbar";
-import { IOption } from "./_types/main_page/ICertificateTable";
-import IHeroIcon from "./_types/main_page/ICertificateIcon";
+import ICertificateIcon from "./_types/main_page/ICertificateIcon";
 import Image from "next/image";
 import CertificateLists from "./_components/main_page/CertificateLists";
 import CertificateTable from "./_components/main_page/CertificateTable";
 // Images for main page
-import BadgeIcon from "@/app/_assets/images/main/award.png";
-import * as CertificateIcons from "@/app/_assets/images/main/certificate_icons";
-import listOfCertificateIcons from "@/app/_assets/images/main/certificate_icons";
+import CertificateIcons from "@/app/_assets/images/main/certificate_icons";
 import WorldMapImage from "@/app/_assets/images/main/world-map.png";
 import * as CardIcons from "@/app/_assets/images/main/card_icons/";
 import { PlusOutlined } from "@ant-design/icons";
-import * as SocialIcons from "@/app/_assets/images/main/social_networks"
 import Footer from "./_components/Footer";
+import { languages, professions, sciences, specialities, anchors, collapseItems } from "./_utils/staticVariables";
 
 type IRadio = "language" | "science";
 
 export default function MainPage() {
-  const anchors: IAnchor[] = [
-    {
-      text: "Ro‘yxatdan o‘tish bosqichlar",
-      link: "registration-steps"
-    },
-    {
-      text: "Sertifikatlar ro‘yxati",
-      link: "certificates",
-    },
-    {
-      text: "Savol-javob",
-      link: "faq",
-    },
-    {
-      text: "Bog‘lanish",
-      link: "contact"
-    }
-  ]
-
-  const specialities: IOption[] = [
-    {
-      label: "O‘rta maxsus va professional",
-      value: "professional"
-    },
-    {
-      label: "Bakalavr",
-      value: "bachelor"
-    },
-    {
-      label: "Magistratura",
-      value: "master"
-    }
-  ]
-
-  const professions: IOption[] = [
-    {
-      label: "O‘quvchi va talaba",
-      value: "student",
-    },
-    {
-      label: "O‘qituvchi",
-      value: "teacher"
-    }
-  ]
-
-  const languages: IOption[] = [
-    {
-      label: "Ingliz tili",
-      value: "english",
-    },
-    {
-      label: "Arab tili",
-      value: "arabic",
-    },
-    {
-      label: "Rus tili",
-      value: "russian",
-    },
-    {
-      label: "Fransuz tili",
-      value: "french",
-    },
-    {
-      label: "Nemis tili",
-      value: "german",
-    },
-    {
-      label: "Ispan tili",
-      value: "spanish",
-    },
-    {
-      label: "Yapon tili",
-      value: "japan",
-    },
-    {
-      label: "Koreys tili",
-      value: "korean",
-    }
-  ]
-
-  const sciences: IOption[] = [
-    {
-      label: "Matematika",
-      value: "maths"
-    },
-    {
-      label: "Informatika",
-      value: "cs"
-    },
-    {
-      label: "Geografiya",
-      value: "geography"
-    },
-    {
-      label: "Biologiya",
-      value: "biology"
-    },
-    {
-      label: "Kimyo",
-      value: "chemistry"
-    },
-    {
-      label: "Tarix",
-      value: "history"
-    },
-  ]
-
-  const collapseText = "Amal qilish muddati cheklanmagan (belgilanmagan) sertifikatlardan sertifikat olingan kundan boshlab uch yildan ko‘p bo‘lmagan vaqt mobaynidaqonunchilik hujjatlarida belgilangan tartibda imtiyoz va ustamalar qo‘llashda foydalaniladi."
-  const collapseItems: CollapseProps['items'] = [
-    {
-      key: '1',
-      label: 'Amal qilish muddati cheklanmagan (belgilanmagan) sertifikatlardan necha yil mobaynida imtiyoz va ustamalar qo‘llashda foydalanish mumkin?',
-      children: <p>{collapseText}</p>,
-    },
-    {
-      key: '2',
-      label: 'Oliy taʼlim tizimida faoliyat yuritayotgan professor-o‘qituvchilarga ustama belgilashda qo‘llaniladigan xorijiy tillarni bilish darajasini baholovchi milliy va xalqaro tan olingan sertifikatlar mashg‘ulot olib boruvchi faniga mos bo‘lishi zarurmi?',
-      children: <p>{collapseText}</p>,
-    },
-    {
-      key: '3',
-      label: 'Umumiy o‘rta taʼlim muassasalariga xorijiy tillar oʻqituvchilari lavozimlariga ishga yangi qabul qilinayotgan talabgorlardan qanday darajaga ega sertifikatlar talab qilinadi?',
-      children: <p>{collapseText}</p>,
-    },
-    {
-      key: '4',
-      label: 'Xorijiy tillar bo‘yicha sertifikatlarga imtiyoz va ustamalar qo‘llashdan oldin ularni verifikatsiyadan o‘tkazish tartibi qanday amalga oshiriladi?',
-      children: <p>{collapseText}</p>,
-    },
-  ];
-
   const [activeRadioButton, setActiveRadioButton] = useState<IRadio>("language")
 
   return (
     <div className="main-page">
       <div className="container main-page__container">
         <Navbar
-          Logo={<Logo theme="dark" />}
-          anchors={anchors}
+          className="main-page__nav"
+          isSignedIn={false}
           theme="dark"
-        >
-          <DropdownLang langs={["O‘zbekcha", "Русский", "English", "Deutsch"]} />
-          <Button className="one-id-btn">One ID orqali kirish</Button>
-        </Navbar>
+        />
 
         <div className="intro main-page__intro">
-          <Hero className="hero main-page__hero">
-            <h1>O‘zbekiston Respublikasida</h1>
-            <h2>Tan olingan
-              <Image
-                src={BadgeIcon}
-                alt="rasmiy tasdiqlangan"
-              />
-              xorijiy tillar hamda umumta’lim fаnlаri bo‘yicha xalqaro sertifikatlar bazasi
-            </h2>
-            <p>
-              O‘zbekiston Respublikasida tan olingan xorijiy tillar hamda umumta’lim fаnlаri bo‘yicha xalqaro sertifikatlar bazasi
-            </p>
-            {/* Login and Signup Buttons */}
-            <AuthButtons />
-          </Hero>
+          <Hero className="hero main-page__hero" />
 
           {/* This section includes many icons and flags*/}
-          <Flex className="certificate-icons" wrap justify="center" gap={20}>
-            {
-              listOfCertificateIcons.map((certificateIcon: IHeroIcon) => (
-                <Tooltip key={certificateIcon.key} title={certificateIcon.title}>
-                  <Image
-                    src={CertificateIcons[certificateIcon.key]}
-                    alt={certificateIcon.title}
-                  />
-                </Tooltip>
-              ))
-            }
+          <div className="certificate-icons-container">
+            <div style={{ maxWidth: "100%", overflowX: "auto", padding: "15px" }}>
+              <Flex className="certificate-icons" wrap justify="center" gap={20}>
+                {
+                  CertificateIcons.map((certificateIcon: ICertificateIcon) => (
+                    <Tooltip key={certificateIcon.key} title={certificateIcon.title}>
+                      <Image
+                        src={certificateIcon.img}
+                        alt={certificateIcon.title}
+                      />
+                    </Tooltip>
+                  ))
+                }
+              </Flex>
+            </div>
             <Image
               className="world-map"
               src={WorldMapImage}
               alt="Dunyo xaritasi rasmi"
             />
-          </Flex>
+          </div>
         </div>
 
         {/* This section includes information in cards */}
@@ -353,23 +204,8 @@ export default function MainPage() {
                   specialties={specialities}
                   options={languages}
                   info="Oʻrta maxsus, professional, oliy va oliy taʼlimdan keyingi taʼlimga kirishda tan olinadigan xorijiy tillarni bilish darajasini belgilovchi milliy va xalqaro sertifikatlar"
-                  columns={[
-                    { key: "name", title: "Sertifikat nomlari", dataIndex: "name" },
-                    { key: "a1", title: "A1", dataIndex: "a1" },
-                    { key: "a2", title: "A2", dataIndex: "a2" },
-                    { key: "b1", title: "B1", dataIndex: "b1" },
-                    { key: "b2", title: "B2", dataIndex: "b2" },
-                    { key: "c1", title: "C1", dataIndex: "c1" },
-                    { key: "c2", title: "C2", dataIndex: "c2" },
-                  ]}
-                  data={[
-                    { key: 1, name: "Chet tilini bilish darajasini aniqlash boʻyicha milliy sertifikat", a1: "-", a2: "✓", b1: "✓", b2: "✓", c1: "✓", c2: "-" },
-                    { key: 2, name: "Test of English as a Foreign Language (TOEFL iBT)", a1: "-", a2: "-", b1: "42-71", b2: "72-94", c1: "95-113", c2: "114-120" },
-                    { key: 3, name: "Test of English as a Foreign Language (TOEFL iTP)", a1: "-", a2: "-", b1: "337-459 Speaking: 41", b2: "460-542 Speaking: 48", c1: "543-626 Speaking: 58", c2: "627-677 Speaking: 64" },
-                    { key: 4, name: "Cambridge Assessment English(KET, PET, FCE, CAE, CPE)", a1: "-", a2: "120", b1: "140", b2: "160", c1: "180", c2: "200" },
-                    { key: 5, name: "International English Language Testing System – IELTS (Academic)", a1: "2.0", a2: "3.0", b1: "4.0-5.0", b2: "5.5-6.5", c1: "7-8", c2: "8.5-9" },
-                    { key: 6, name: "iTEP International Test of English Proficiency", a1: "✓", a2: "✓", b1: "✓", b2: "✓", c1: "✓", c2: "✓" }
-                  ]}
+                  columns={languages[0].table.columns}
+                  data={languages[0].table.data}
                   dataType="language"
                 />
               </CertificateLists>)
@@ -382,16 +218,8 @@ export default function MainPage() {
                   specialties={specialities}
                   options={sciences}
                   info="Oliy taʼlim muassasalarining bakalavriat taʼlim yoʻnalishlariga o‘qishga kirishda imtiyoz beradigan umumtaʼlim fanlari bo‘yicha milliy va xalqaro tan olingan sertifikatlar"
-                  columns={[
-                    { key: "name", title: "Sertifikat nomi", dataIndex: "name" },
-                    { key: "type", title: "Sertifikat turi", dataIndex: "type" },
-                    { key: "max", title: "Maksimal ball", dataIndex: "max" },
-                    { key: "proportional", title: "Proportsional ball", dataIndex: "proportional" }
-                  ]}
-                  data={[
-                    { key: 1, name: "Umumtaʼlim fanini bilish darajasi to‘g‘risidagi milliy sertifikat", type: "Milliy", max: "A+, A (86 va undan yuqori ball)", proportional: "B+, B, C+, C (60-85,9 ball) Majburiy fan bo‘yicha belgilangan eng yuqori ball" },
-                    { key: 2, name: "Cambridge International A-LEVEL (Mathematics – 9709)", type: "Xalqaro", max: "A, A+ Majburiy fan bo‘yicha belgilangan eng yuqori ball", proportional: "-" },
-                  ]}
+                  columns={sciences[0].table.columns}
+                  data={sciences[0].table.data}
                   dataType="science"
                 />
               </CertificateLists>)
@@ -410,9 +238,11 @@ export default function MainPage() {
                 ? <PlusOutlined style={{ transform: "rotate(45deg)" }} />
                 : <PlusOutlined />
             )}
-            expandIconPosition="right"
+            expandIconPosition="end"
           />
         </section>
+
+        <FloatButton.BackTop />
 
         {/* Footer section */}
         <Footer id={anchors[3].link} className={anchors[3].link} />
