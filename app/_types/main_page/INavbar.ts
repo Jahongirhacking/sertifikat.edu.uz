@@ -1,10 +1,7 @@
-import { FC, ReactElement } from "react";
-
 export default interface INavbar {
-  Logo: ReactElement;
-  anchors: IAnchor[];
   theme: "light" | "dark";
-  children?: ReactElement | ReactElement[];
+  isSignedIn: boolean;
+  className?: string;
 }
 
 export interface IAnchor {
