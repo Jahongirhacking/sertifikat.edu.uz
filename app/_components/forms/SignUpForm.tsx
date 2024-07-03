@@ -7,8 +7,10 @@ import PassportForm from "./PassportForm";
 
 const SignUpForm = ({
     showModalSMS,
+    showModalForeigner
 }: {
     showModalSMS: () => void,
+    showModalForeigner: () => void,
 }) => {
     const [activeTab, setActiveTab] = useState("passport");
 
@@ -24,11 +26,13 @@ const SignUpForm = ({
                         activeTab={activeTab}
                         setActiveTab={setActiveTab}
                         showModalSMS={showModalSMS}
+                        showModalForeigner={showModalForeigner}
                     />
                     : <BirthCertificateForm
                         activeTab={activeTab}
                         setActiveTab={setActiveTab}
                         showModalSMS={showModalSMS}
+                        showModalForeigner={showModalForeigner}
                     />
             }
         </Form>

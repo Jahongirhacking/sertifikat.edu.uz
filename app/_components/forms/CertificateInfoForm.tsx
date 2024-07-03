@@ -2,7 +2,7 @@
 
 import { languages, sciences } from "@/app/_utils/staticVariables";
 import { InboxOutlined } from "@ant-design/icons";
-import { DatePicker, Divider, Upload, Flex, Form, Input, Radio, Select, Typography, UploadProps, message } from "antd"
+import { DatePicker, Divider, Upload, Flex, Form, Input, Radio, Select, Typography, UploadProps, message, Segmented, Col, Row } from "antd"
 import { useState } from "react";
 
 const { Dragger } = Upload;
@@ -48,123 +48,135 @@ type CertificateType = {
 
 const CertificateInfoForm = () => {
     const [certificateType, setCertificateType] = useState<"language" | "science">("language");
+    const [activeIndex, setActiveIndex] = useState(-1);
 
     return (
         <>
-            <Flex justify="space-between">
-                <Typography.Title level={2}>
+            <Flex justify="space-between" align="center" wrap gap={15}>
+                <Typography.Title level={2} style={{ margin: "auto 0" }}>
                     {
                         certificateType === "language"
                             ? "Chet tili sertifikati"
                             : "Fan sertifikati"
                     }
                 </Typography.Title>
-                <Radio.Group onChange={(e) => setCertificateType(e.target.value)} defaultValue={certificateType}>
-                    <Radio.Button value="language">Chet tili sertifikat</Radio.Button>
-                    <Radio.Button value="science">Fan sertifikat</Radio.Button>
-                </Radio.Group>
+                <Segmented
+                    defaultValue={certificateType}
+                    options={[{
+                        label: "Chet tili sertifikat",
+                        value: "language",
+                    }, {
+                        label: "Fan sertifikat",
+                        value: "science"
+                    }]}
+                    onChange={(value: "language" | "science") => setCertificateType(value)}
+                />
             </Flex>
             <Divider />
             <Form
-                name="personal-info"
-                initialValues={{ remember: true }}
+                name="certificate-info"
                 autoComplete="off"
             >
-                <Form.Item<CertificateType>
-                    label={`${certificateType === "language" ? "Til" : "Fan"} nomi`}
-                    name="name"
-                    rules={[{ required: true, message: 'Nom kiriting!' }]}
-                >
-                    <Select
-                        showSearch
-                        placeholder={`${certificateType === "language" ? "Til" : "Fan"} nomini kiriting`}
-                        optionFilterProp="label"
-                        options={certificateType === "language"
-                            ? languages.map((language) => ({
-                                value: language.value,
-                                label: language.label
-                            }))
-                            : sciences.map((science) => ({
-                                value: science.value,
-                                label: science.label
-                            }))
-                        }
-                    />
-                </Form.Item>
-
-
-                <Form.Item<CertificateType>
-                    label="Sertifikat turi"
-                    name="type"
-                    rules={[{ required: true, message: 'Sertifikat turini tanlang!' }]}
-                >
-                    <Select
-                        showSearch
-                        placeholder="Sertifikat turini tanlang"
-                        optionFilterProp="label"
-                        options={certificateType === "language"
-                            ? [
-                                {
-                                    label: "IELTS",
-                                    value: "ielts"
-                                },
-                                {
-                                    label: "CEFR",
-                                    value: "cefr"
-                                },
-                            ]
-                            : [
-                                {
-                                    label: "SAT",
-                                    value: "sat",
-                                },
-                                {
-                                    label: "ICPC",
-                                    value: "icpc"
+                <Row>
+                    <Col span={11}>
+                        <Form.Item<CertificateType>
+                            label={`${certificateType === "language" ? "Til" : "Fan"} nomi`}
+                            name="name"
+                            rules={[{ required: true, message: 'Nom kiriting!' }]}
+                        >
+                            <Select
+                                showSearch
+                                placeholder={`${certificateType === "language" ? "Til" : "Fan"} nomini kiriting`}
+                                optionFilterProp="label"
+                                onChange={(value) => setActiveIndex(value)}
+                                options={certificateType === "language"
+                                    ? languages.map((language, index) => ({
+                                        value: index,
+                                        label: language.label
+                                    }))
+                                    : sciences.map((science, index) => ({
+                                        value: index,
+                                        label: science.label
+                                    }))
                                 }
-                            ]
-                        }
-                    />
-                </Form.Item>
+                            />
+                        </Form.Item>
+                    </Col>
 
-                <Form.Item<CertificateType>
-                    label="Daraja"
-                    name="level"
-                    rules={[{ required: true, message: 'Sertifikat darajasini tanlang!' }]}
-                >
-                    <Select
-                        showSearch
-                        placeholder={`${certificateType === "language" ? "Til" : "Fan"} darajasini tanlang`}
-                        optionFilterProp="label"
-                        options={["A1", "A2", "B1", "B2", "C1", "C2"]
-                            .map(level => ({ label: level, value: level }))}
-                    />
-                </Form.Item>
+                    <Col span={11}>
+                        <Form.Item<CertificateType>
+                            label="Sertifikat turi"
+                            name="type"
+                            rules={[{ required: true, message: 'Sertifikat turini tanlang!' }]}
+                        >
+                            <Select
+                                showSearch
+                                placeholder="Sertifikat turini tanlang"
+                                optionFilterProp="label"
+                                disabled={activeIndex < 0}
+                                options={activeIndex < 0
+                                    ? []
+                                    : certificateType === "language"
+                                        ? languages[activeIndex].certificates
+                                            .map(certificate => ({ label: certificate.toUpperCase(), value: certificate }))
+                                        : sciences[activeIndex].certificates
+                                            .map(science => ({ label: science.toUpperCase(), value: science }))
+                                }
+                            />
+                        </Form.Item>
+                    </Col>
+                </Row>
 
-                <Form.Item<CertificateType>
-                    label="Seriya va raqam"
-                    name="id"
-                    rules={[{ required: true, message: 'Seriya va raqam kiriting!' }]}
-                >
-                    <Input placeholder="_ _ _ _ _ _ _ _ _ _ _" />
+                <Row>
+                    <Col span={11}>
+                        <Form.Item<CertificateType>
+                            label="Daraja"
+                            name="level"
+                            rules={[{ required: true, message: 'Sertifikat darajasini tanlang!' }]}
+                        >
+                            <Select
+                                showSearch
+                                placeholder={`${certificateType === "language" ? "Til" : "Fan"} darajasini tanlang`}
+                                optionFilterProp="label"
+                                options={["A1", "A2", "B1", "B2", "C1", "C2"]
+                                    .map(level => ({ label: level, value: level }))}
+                            />
+                        </Form.Item>
+                    </Col>
 
-                </Form.Item>
+                    <Col span={11}>
+                        <Form.Item<CertificateType>
+                            label="Seriya va raqam"
+                            name="id"
+                            rules={[{ required: true, message: 'Seriya va raqam kiriting!' }]}
+                        >
+                            <Input placeholder="_ _ _ _ _ _ _ _ _ _ _" />
 
-                <Form.Item<CertificateType>
-                    label="Hujjat berilgan sana"
-                    name="startDate"
-                    rules={[{ required: true, message: 'Sanani kiriting!' }]}
-                >
-                    <DatePicker placeholder="kk.oo.yyyy" />
-                </Form.Item>
+                        </Form.Item>
+                    </Col>
+                </Row>
 
-                <Form.Item<CertificateType>
-                    label="Amal qilish muddati"
-                    name="endDate"
-                    rules={[{ required: true, message: 'Sanani kiriting!' }]}
-                >
-                    <DatePicker placeholder="kk.oo.yyyy" />
-                </Form.Item>
+                <Row>
+                    <Col span={11}>
+                        <Form.Item<CertificateType>
+                            label="Hujjat berilgan sana"
+                            name="startDate"
+                            rules={[{ required: true, message: 'Sanani kiriting!' }]}
+                        >
+                            <DatePicker placeholder="kk.oo.yyyy" />
+                        </Form.Item>
+                    </Col>
+
+                    <Col span={11}>
+                        <Form.Item<CertificateType>
+                            label="Amal qilish muddati"
+                            name="endDate"
+                            rules={[{ required: true, message: 'Sanani kiriting!' }]}
+                        >
+                            <DatePicker placeholder="kk.oo.yyyy" />
+                        </Form.Item>
+                    </Col>
+                </Row>
 
                 <Divider />
 

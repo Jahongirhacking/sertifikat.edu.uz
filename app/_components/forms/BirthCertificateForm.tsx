@@ -11,10 +11,12 @@ const BirthCertificateForm = ({
     activeTab,
     setActiveTab,
     showModalSMS,
+    showModalForeigner
 }: {
     activeTab: string,
     setActiveTab: (value: string) => void,
     showModalSMS: () => void,
+    showModalForeigner: () => void
 }) => {
     return (
         <>
@@ -69,9 +71,13 @@ const BirthCertificateForm = ({
 
                     <Divider>Chet el fuqarolari uchun</Divider>
 
-                    <Link href="#" style={{ color: "#1677FF" }}>
+                    <Button
+                        onClick={showModalForeigner}
+                        type="link"
+                        style={{ color: "#1677FF" }}
+                    >
                         Chet el fuqarolari uchun ro‘yxatdan o‘tish
-                    </Link>
+                    </Button>
                 </Space>
             </Form.Item>
         </>

@@ -15,7 +15,7 @@ const TeacherForm = () => {
 
     return (
         <Form
-            name="personal-info"
+            name="teacher-info"
             initialValues={{ remember: true }}
             autoComplete="off"
         >

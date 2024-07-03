@@ -131,3 +131,66 @@
     }
   }
 }
+
+.foreigner-modal {
+  .ant-picker {
+    width: 100%;
+  }
+
+  .ant-form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    .ant-radio-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: auto;
+
+      .ant-radio-wrapper {
+        background-color: #f5f5f5;
+        padding: 8px;
+        border-radius: 4px;
+
+        &-checked {
+          background-color: #e6f4ff;
+        }
+      }
+    }
+
+    &-item {
+      &-row {
+        align-items: flex-start;
+        flex-direction: column;
+
+        input {
+          width: 100%;
+          text-align: left;
+        }
+      }
+    }
+    &-item-control {
+      width: 100%;
+      flex: none;
+
+      .ant-space {
+        margin-top: 10px;
+      }
+
+      .ant-divider .ant-divider-inner-text {
+        font-size: 14px;
+        line-height: 22px;
+      }
+
+      .ant-btn-primary {
+        background: $greenGradient;
+      }
+
+      .ant-btn {
+        padding: 8px;
+        font-weight: 600;
+      }
+    }
+  }
+}
