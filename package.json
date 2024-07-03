@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.7",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "antd": "^5.18.3",
     "next": "14.2.4",
     "react": "^18",
@@ -21,6 +24,8 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "3.3.2",
     "sass": "^1.77.6",
     "typescript": "^5"
   }
