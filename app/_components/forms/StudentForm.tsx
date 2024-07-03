@@ -1,4 +1,4 @@
-import { Divider, Flex, Form, Input, Radio, Space, Typography } from "antd";
+import { Col, Divider, Flex, Form, Input, Radio, Row, Space, Typography } from "antd";
 
 type StudentType = {
     studyPlace?: string;
@@ -11,7 +11,7 @@ type StudentType = {
 const StudentForm = () => {
     return (
         <Form
-            name="personal-info"
+            name="student-info"
             initialValues={{ remember: true }}
             autoComplete="off"
         >
@@ -20,7 +20,7 @@ const StudentForm = () => {
                 name="studyPlace"
                 rules={[{ required: true, message: 'O’qish joyingizni tanlang!' }]}
             >
-                <Radio.Group>
+                <Radio.Group className="place">
                     <Radio value="school">Umumiy o’rta ta’lim muassasasi (Maktab)</Radio>
                     <Radio value="college">O’rta maxsus ta’lim muassasasi (Akademik litsey) </Radio>
                     <Radio value="lyceum">Professional ta’lim muassasasi (Kasb-hunar maktabi, Kollej, Texnikum)</Radio>
@@ -36,41 +36,49 @@ const StudentForm = () => {
                     Ta’lim ma’lumotlari
                 </Typography.Title>
 
-                <Flex gap={20}>
-                    <Form.Item<StudentType>
-                        label="Ta’lim muassasa joylashgan viloyati:"
-                        name="region"
-                        rules={[{ required: true, message: 'Ta`lim muassasa joylashgan viloyatini tanlang!' }]}
-                    >
-                        <Input placeholder="Buxoro" />
-                    </Form.Item>
+                <Row>
+                    <Col span={11}>
+                        <Form.Item<StudentType>
+                            label="Ta’lim muassasa joylashgan viloyati:"
+                            name="region"
+                            rules={[{ required: true, message: 'Ta`lim muassasa joylashgan viloyatini tanlang!' }]}
+                        >
+                            <Input placeholder="Buxoro" />
+                        </Form.Item>
+                    </Col>
 
-                    <Form.Item<StudentType>
-                        label="Ta'lim muassasa joylashgan tuman:"
-                        name="district"
-                        rules={[{ required: true, message: 'Ta`lim muassasa joylashgan tumanni tanlang!' }]}
-                    >
-                        <Input placeholder="Vobkent" />
-                    </Form.Item>
-                </Flex>
+                    <Col span={11}>
+                        <Form.Item<StudentType>
+                            label="Ta'lim muassasa joylashgan tuman:"
+                            name="district"
+                            rules={[{ required: true, message: 'Ta`lim muassasa joylashgan tumanni tanlang!' }]}
+                        >
+                            <Input placeholder="Vobkent" />
+                        </Form.Item>
+                    </Col>
+                </Row>
 
-                <Flex gap={20}>
-                    <Form.Item<StudentType>
-                        label="Ta’lim muassasa nomi:"
-                        name="institutionName"
-                        rules={[{ required: true, message: 'Ta’lim muassasa nomi!' }]}
-                    >
-                        <Input placeholder="Raqamli talim" />
-                    </Form.Item>
+                <Row>
+                    <Col span={11}>
+                        <Form.Item<StudentType>
+                            label="Ta’lim muassasa nomi:"
+                            name="institutionName"
+                            rules={[{ required: true, message: 'Ta’lim muassasa nomi!' }]}
+                        >
+                            <Input placeholder="Raqamli talim" />
+                        </Form.Item>
+                    </Col>
 
-                    <Form.Item<StudentType>
-                        label="Sinfi:"
-                        name="class"
-                        rules={[{ required: true, message: 'Sinfni yozing' }]}
-                    >
-                        <Input placeholder="Sinfi" />
-                    </Form.Item>
-                </Flex>
+                    <Col span={11}>
+                        <Form.Item<StudentType>
+                            label="Sinfi:"
+                            name="class"
+                            rules={[{ required: true, message: 'Sinfni yozing' }]}
+                        >
+                            <Input placeholder="Sinfi" />
+                        </Form.Item>
+                    </Col>
+                </Row>
             </Space>
         </Form>
     )

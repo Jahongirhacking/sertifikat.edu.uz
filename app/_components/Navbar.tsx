@@ -63,7 +63,9 @@ const Buttons = ({ isSignedIn }: { isSignedIn: boolean }) => {
             <DropdownLang langs={["O‘zbekcha", "Русский", "English", "Deutsch"]} />
             {
                 isSignedIn
-                    ? <Button className="profile-btn">AA</Button>
+                    ? <Link href="/cabinet">
+                        <Button className="profile-btn">AA</Button>
+                    </Link>
                     : <Link href="/cabinet">
                         <Button className="one-id-btn">One ID orqali kirish</Button>
                     </Link>

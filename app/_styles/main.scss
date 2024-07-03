@@ -682,6 +682,11 @@ body {
   .about-individual {
     align-items: flex-start !important;
 
+    .ant-dropdown-trigger {
+      background-color: transparent;
+      color: $primaryColor;
+    }
+
     .ant-flex {
       justify-content: flex-start !important;
     }

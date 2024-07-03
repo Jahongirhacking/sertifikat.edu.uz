@@ -5,8 +5,10 @@ import {
   IScienceTable,
 } from "../_types/main_page/ICertificateTable";
 import { IAnchor } from "../_types/main_page/INavbar";
+import IInfo from "../_types/cabinet/IInfo";
 
 interface ITable<T> extends IOption {
+  certificates: string[];
   table: {
     columns: {
       key: string;
@@ -149,6 +151,12 @@ export const languages: ITable<ILanguageTable>[] = [
   {
     label: "Ingliz tili",
     value: "english",
+    certificates: [
+      "ielts",
+      "cefr",
+      "duolingo",
+      "Cambridge Assessment English Linguaskill",
+    ],
     table: {
       columns: languageColumns,
       data: languageData,
@@ -157,6 +165,7 @@ export const languages: ITable<ILanguageTable>[] = [
   {
     label: "Arab tili",
     value: "arabic",
+    certificates: ["duolingo", "toafl"],
     table: {
       columns: languageColumns,
       data: languageData,
@@ -165,6 +174,7 @@ export const languages: ITable<ILanguageTable>[] = [
   {
     label: "Rus tili",
     value: "russian",
+    certificates: ["cefr", "torfl"],
     table: {
       columns: languageColumns,
       data: languageData,
@@ -173,6 +183,7 @@ export const languages: ITable<ILanguageTable>[] = [
   {
     label: "Fransuz tili",
     value: "french",
+    certificates: ["fle"],
     table: {
       columns: languageColumns,
       data: languageData,
@@ -181,6 +192,7 @@ export const languages: ITable<ILanguageTable>[] = [
   {
     label: "Nemis tili",
     value: "german",
+    certificates: ["cefr", "dsh", "test-daf", "goethe"],
     table: {
       columns: languageColumns,
       data: languageData,
@@ -189,6 +201,7 @@ export const languages: ITable<ILanguageTable>[] = [
   {
     label: "Ispan tili",
     value: "spanish",
+    certificates: ["dele"],
     table: {
       columns: languageColumns,
       data: languageData,
@@ -197,6 +210,7 @@ export const languages: ITable<ILanguageTable>[] = [
   {
     label: "Yapon tili",
     value: "japan",
+    certificates: ["jlpt"],
     table: {
       columns: languageColumns,
       data: languageData,
@@ -205,6 +219,7 @@ export const languages: ITable<ILanguageTable>[] = [
   {
     label: "Koreys tili",
     value: "korean",
+    certificates: ["topik"],
     table: {
       columns: languageColumns,
       data: languageData,
@@ -216,6 +231,7 @@ export const sciences: ITable<IScienceTable>[] = [
   {
     label: "Matematika",
     value: "maths",
+    certificates: ["milliy sertifikat", "sat"],
     table: {
       columns: scienceColumns,
       data: scienceData,
@@ -224,6 +240,7 @@ export const sciences: ITable<IScienceTable>[] = [
   {
     label: "Informatika",
     value: "cs",
+    certificates: ["milliy sertifikat", "icpc"],
     table: {
       columns: scienceColumns,
       data: scienceData,
@@ -232,6 +249,7 @@ export const sciences: ITable<IScienceTable>[] = [
   {
     label: "Geografiya",
     value: "geography",
+    certificates: ["milliy sertifikat"],
     table: {
       columns: scienceColumns,
       data: scienceData,
@@ -240,6 +258,7 @@ export const sciences: ITable<IScienceTable>[] = [
   {
     label: "Biologiya",
     value: "biology",
+    certificates: ["milliy sertifikat"],
     table: {
       columns: scienceColumns,
       data: scienceData,
@@ -248,6 +267,7 @@ export const sciences: ITable<IScienceTable>[] = [
   {
     label: "Kimyo",
     value: "chemistry",
+    certificates: ["milliy sertifikat"],
     table: {
       columns: scienceColumns,
       data: scienceData,
@@ -256,6 +276,7 @@ export const sciences: ITable<IScienceTable>[] = [
   {
     label: "Tarix",
     value: "history",
+    certificates: ["milliy sertifikat"],
     table: {
       columns: scienceColumns,
       data: scienceData,
@@ -308,5 +329,116 @@ export const collapseItems: CollapseProps["items"] = [
     label:
       "Xorijiy tillar bo‘yicha sertifikatlarga imtiyoz va ustamalar qo‘llashdan oldin ularni verifikatsiyadan o‘tkazish tartibi qanday amalga oshiriladi?",
     children: collapseText,
+  },
+];
+
+export const certificateInfo: IInfo[] = [
+  {
+    left: "Chet tili:",
+    right: {
+      text: "Ingliz tili",
+      href: "",
+    },
+  },
+  {
+    left: "Sertifikat turi:",
+    right: {
+      text: "Cambridge Assessment English Linguaskill",
+      href: "",
+    },
+  },
+  {
+    left: "Darajasi:",
+    right: {
+      text: "22DTM1003471ES",
+      href: "",
+    },
+  },
+  {
+    left: "Seriya raqami:",
+    right: {
+      text: "A2",
+      href: "",
+    },
+  },
+  {
+    left: "Amal qilish muddati:",
+    right: {
+      text: "2022-12-27 dan 2025-12-26 gacha",
+      href: "",
+    },
+  },
+  {
+    left: "Hujjat nusxasi:",
+    right: {
+      text: "Yuklab olish",
+      href: "#",
+    },
+  },
+];
+
+export const professionInfo: IInfo[] = [
+  {
+    left: "Sertifikat qo'shishdan maqsadingizni tanlang:",
+    right: {
+      text: "Ustama (Xodim, O'qituvchi)",
+      href: "",
+    },
+  },
+  {
+    left: "Ish joyingizni tanlang:",
+    right: {
+      text: "Umumiy o'rta ta'lim muassasi (Maktab)",
+      href: "",
+    },
+  },
+  {
+    left: "Ish joyi joylashgan (Viloyati):",
+    right: {
+      text: "Buxoro",
+      href: "",
+    },
+  },
+  {
+    left: "Ish joyi joylashgan (Tumani):",
+    right: {
+      text: "Vobkent",
+      href: "",
+    },
+  },
+  {
+    left: "Ish joyi nomi:",
+    right: {
+      text: "Milliy universitet",
+      href: "",
+    },
+  },
+  {
+    left: "Lavozim:",
+    right: {
+      text: "O'qituvchi",
+      href: "",
+    },
+  },
+];
+
+export const countries = [
+  "O'zbekiston",
+  "Tojikiston",
+  "Qozog'iston",
+  "Qirg'iziston",
+  "Turkmaniston",
+];
+
+export const nationalities = ["o'zbek", "tojik", "qozoq", "qirg'iz", "turkman"];
+
+export const regions = [
+  {
+    name: "Toshkent shahri",
+    districts: ["Chilonzor tumani", "Mirzo Ulug'bek tumani", "Sergeli tumani"],
+  },
+  {
+    name: "Qashqadaryo viloyati",
+    districts: ["G'uzor tumani", "Qarshi tumani", "Yakkabog' tumani"],
   },
 ];

@@ -1,3 +1,5 @@
+@import "../../_styles/colors.scss";
+
 .auth-btns {
   display: flex;
   gap: 10px;
@@ -29,6 +31,166 @@
 
     &.signup-btn {
       background: linear-gradient(90deg, #01a52f 27.5%, #bddb08 100%);
+    }
+  }
+}
+
+.ant-modal {
+  .ant-btn-primary {
+    background: $greenGradient;
+    &:hover {
+      background: $greenGradient !important;
+    }
+  }
+}
+
+.ant-modal.signIn-signUp-modal {
+  .ant-modal-content {
+    .ant-tabs {
+      &-nav {
+        &-list {
+          .ant-tabs-tab {
+            .ant-typography {
+              font-size: 24px;
+              line-height: 32px;
+              margin: auto;
+              color: rgba(#000, 25%);
+            }
+            &-active {
+              .ant-typography {
+                color: black;
+              }
+            }
+          }
+          .ant-tabs-ink-bar {
+            background: black;
+          }
+        }
+      }
+
+      .ant-tabs-content {
+        .ant-tabs-tabpane {
+          .ant-form {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+
+            .ant-radio-group {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin: auto;
+
+              .ant-radio-wrapper {
+                background-color: #f5f5f5;
+                padding: 8px;
+                border-radius: 4px;
+
+                &-checked {
+                  background-color: #e6f4ff;
+                }
+              }
+            }
+
+            &-item {
+              &-row {
+                align-items: flex-start;
+                flex-direction: column;
+
+                input {
+                  width: 100%;
+                  text-align: left;
+                }
+              }
+            }
+            &-item-control {
+              width: 100%;
+              flex: none;
+
+              .ant-space {
+                margin-top: 10px;
+              }
+
+              .ant-divider .ant-divider-inner-text {
+                font-size: 14px;
+                line-height: 22px;
+              }
+
+              .ant-btn-primary {
+                background: $greenGradient;
+              }
+
+              .ant-btn {
+                padding: 8px;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.foreigner-modal {
+  .ant-picker {
+    width: 100%;
+  }
+
+  .ant-form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    .ant-radio-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: auto;
+
+      .ant-radio-wrapper {
+        background-color: #f5f5f5;
+        padding: 8px;
+        border-radius: 4px;
+
+        &-checked {
+          background-color: #e6f4ff;
+        }
+      }
+    }
+
+    &-item {
+      &-row {
+        align-items: flex-start;
+        flex-direction: column;
+
+        input {
+          width: 100%;
+          text-align: left;
+        }
+      }
+    }
+    &-item-control {
+      width: 100%;
+      flex: none;
+
+      .ant-space {
+        margin-top: 10px;
+      }
+
+      .ant-divider .ant-divider-inner-text {
+        font-size: 14px;
+        line-height: 22px;
+      }
+
+      .ant-btn-primary {
+        background: $greenGradient;
+      }
+
+      .ant-btn {
+        padding: 8px;
+        font-weight: 600;
+      }
     }
   }
 }

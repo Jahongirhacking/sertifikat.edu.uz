@@ -9,25 +9,6 @@ export const metadata: Metadata = {
     description: "Tan olingan xorijiy tillar hamda umumta’lim fаnlаri bo‘yicha xalqaro sertifikatlar bazasi",
 };
 
-const anchors: IAnchor[] = [
-    {
-        text: "Ro‘yxatdan o‘tish bosqichlar",
-        link: "registration-steps"
-    },
-    {
-        text: "Sertifikatlar ro‘yxati",
-        link: "certificates",
-    },
-    {
-        text: "Savol-javob",
-        link: "faq",
-    },
-    {
-        text: "Bog‘lanish",
-        link: "contact"
-    }
-]
-
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -44,6 +25,7 @@ export default function RootLayout({
                         <Navbar
                             theme="light"
                             isSignedIn={true}
+                            className="cabinet__nav"
                         />
                         {children}
                     </div>

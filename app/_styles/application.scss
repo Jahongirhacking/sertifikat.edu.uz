@@ -1,10 +1,10 @@
 @import "./colors.scss";
+@import "../_components/Info.scss";
 
 .application-detail {
   display: flex;
   flex-direction: column;
   row-gap: 30px;
-  padding-bottom: 80px;
 
   .application-title {
     font-size: 20px;
@@ -33,6 +33,14 @@
           display: flex;
           flex-direction: column;
           row-gap: 32px;
+
+          .profession-info {
+            @include InfoMixin;
+          }
+
+          .language-certificate-info {
+            @include InfoMixin;
+          }
         }
 
         section {
@@ -53,6 +61,66 @@
   max-width: 1000px;
   margin: auto;
 
+  .ant-form {
+    .ant-space {
+      width: 100%;
+    }
+
+    .ant-row {
+      justify-content: space-between;
+    }
+
+    .ant-form-item {
+      .ant-row {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .ant-col {
+          width: 100%;
+          text-align: left;
+
+          .ant-picker {
+            width: 100%;
+          }
+        }
+      }
+
+      &-control {
+        flex: none;
+      }
+
+      .ant-radio-group.gender-radio {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: auto;
+
+        .ant-radio-wrapper {
+          background-color: #f5f5f5;
+          padding: 8px;
+          border-radius: 4px;
+
+          &-checked {
+            background-color: #e6f4ff;
+          }
+        }
+      }
+
+      .ant-radio-group.place {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .ant-segmented-group {
+    justify-content: center;
+
+    .ant-segmented-item {
+      width: 100%;
+    }
+  }
+
   .continue-btn {
     background: $greenGradient;
     transition: 0.6s ease;
@@ -62,6 +130,30 @@
       color: lime !important;
       border: 1px solid lime;
       background-color: white !important;
+    }
+  }
+}
+
+.application-detail {
+  @media screen and (max-width: 800px) {
+    main {
+      .steps,
+      .info {
+        max-width: 100%;
+      }
+
+      .steps {
+        order: 1;
+      }
+
+      .info {
+        order: 2;
+      }
+
+      & > .ant-row {
+        flex-direction: column;
+        row-gap: 15px;
+      }
     }
   }
 }

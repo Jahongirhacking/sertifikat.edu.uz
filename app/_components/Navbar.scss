@@ -28,20 +28,21 @@
 
       &.profile-btn,
       &.one-id-btn {
-        border: 2px solid lime;
+        border: 2px solid #22bf22;
 
         & {
           transition: background 0.4s ease;
         }
 
         &:hover {
-          border-color: lime !important;
+          border-color: #22bf22 !important;
           background: $greenGradient;
+          color: white !important;
         }
       }
 
       &.profile-btn {
-        color: lime;
+        color: #22bf22;
         &:hover::after {
           color: $primaryColor;
         }
@@ -71,7 +72,7 @@
 
         &.profile-btn,
         &.one-id-btn {
-          border: 2px solid lime;
+          border: 2px solid #22bf22;
 
           &::after {
             transition: background 0.4s ease;
@@ -87,10 +88,20 @@
         }
 
         &.profile-btn {
-          color: lime;
+          color: #22bf22;
           &:hover::after {
             color: white;
           }
+        }
+      }
+
+      .drawer-btn {
+        color: $primaryBackgroundColor !important;
+        border-color: $primaryBackgroundColor !important;
+
+        &:hover {
+          color: $primaryBackgroundColor !important;
+          border-color: $primaryBackgroundColor !important;
         }
       }
     }
@@ -109,7 +120,7 @@
       transition: 0.4s ease;
 
       &:hover {
-        color: lime;
+        color: #22bf22;
       }
     }
   }
