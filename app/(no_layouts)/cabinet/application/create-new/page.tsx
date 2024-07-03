@@ -8,10 +8,11 @@ import Image from "next/image";
 import { useState } from "react";
 import "@/app/_styles/application.scss";
 import DoneImage from "@/app/_assets/images/done.png"
+import SuccessModal from "@/app/_components/SuccessModal";
 
 const CreateNewApplication = () => {
     const [step, setStep] = useState(0);
-    const [showModal, setShowModal] = useState(false);
+    const [isOpenModal, setIsOpenModal] = useState(false);
 
     return (
         <div className="application-create">
@@ -59,7 +60,7 @@ const CreateNewApplication = () => {
                     type="primary"
                     onClick={() => {
                         if (step === 2) {
-                            setShowModal(true);
+                            setIsOpenModal(true);
                         } else {
                             setStep((prev) => prev + 1)
                         }
@@ -69,29 +70,15 @@ const CreateNewApplication = () => {
                 </Button>
             </Flex>
             {/* Finish Modal */}
-            <Modal
-                open={showModal}
-                footer={null}
-                closeIcon={null}
-            >
-                <div style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "15px"
-                }}>
-                    <Image
-                        width={158}
-                        src={DoneImage}
-                        alt="Muvaffaqiyatli Rasm"
-                    />
-                    <h2>Tabriklaymiz!</h2>
-                    <p>Siz muvaffaqiyatli ariza yubordingiz.</p>
+            <SuccessModal
+                isOpenModal={isOpenModal}
+                successText="Siz muvaffaqiyatli ariza yubordingiz!"
+                btn={
                     <Link href="/cabinet">
                         <Button className="continue-btn" type="primary">Arizalarim</Button>
                     </Link>
-                </div>
-            </Modal>
+                }
+            />
         </div>
     )
 }

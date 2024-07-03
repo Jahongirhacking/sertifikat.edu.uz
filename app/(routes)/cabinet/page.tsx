@@ -3,11 +3,12 @@
 import Applications from "@/app/_components/cabinet/Applications";
 import Certificates from "@/app/_components/cabinet/Certificates";
 import PersonalInfo from "@/app/_components/cabinet/PersonalInfo";
-import { Button, Col, Divider, Row, Tabs } from "antd"
+import { Col, Divider, Menu, Row } from "antd"
 import ITabItem from "@/app/_types/cabinet/ITabItem";
-import { CarryOutOutlined, FileDoneOutlined, LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightFromBracket, faBookOpen, faFolder, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Cabinet = () => {
     const [activeTab, setActiveTab] = useState(0);
@@ -18,7 +19,7 @@ const Cabinet = () => {
             label: <span className="menu-text">
                 Shaxsiy ma’lumotlar
             </span>,
-            icon: <UserOutlined />,
+            icon: <FontAwesomeIcon icon={faUser} />,
             children: <PersonalInfo />,
         },
         {
@@ -26,7 +27,7 @@ const Cabinet = () => {
             label: <span className="menu-text">
                 Arizalarim
             </span>,
-            icon: <CarryOutOutlined />,
+            icon: <FontAwesomeIcon icon={faFolder} />,
             children: <Applications />,
         },
         {
@@ -34,7 +35,7 @@ const Cabinet = () => {
             label: <span className="menu-text">
                 Sertifikatlarim
             </span>,
-            icon: <FileDoneOutlined />,
+            icon: <FontAwesomeIcon icon={faBookOpen} />,
             children: <Certificates />,
         },
     ]
@@ -44,21 +45,26 @@ const Cabinet = () => {
             <h2>Shaxsiy kabinet</h2>
             <Row>
                 <Col span={4} className="menu-items">
-                    {
-                        tabItems.map((item) => (
-                            <Button onClick={() => setActiveTab(Number(item.key))} key={item.key} >
-                                {item.icon}
-                                {item.label}
-                            </Button>)
-                        )
-                    }
+                    <Menu
+                        onClick={(e) => setActiveTab(Number(e.key))}
+                        selectedKeys={[activeTab.toString()]}
+                        mode="vertical"
+                        items={tabItems.map((item) => ({ ...item, children: null }))}
+                    />
                     <Divider />
-                    <Link href="/">
-                        <Button danger>
-                            <LogoutOutlined />
-                            <span className="menu-text">Chiqish</span>
-                        </Button>
-                    </Link >
+                    <Menu
+                        className="sign-out-btn"
+                        mode="vertical"
+                        items={[{
+                            label: (
+                                <Link href="/">
+                                    <span className="menu-text">Chiqish</span>
+                                </Link >
+                            ),
+                            key: '3',
+                            icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                        }]}
+                    />
                 </Col>
                 <Col span={19}>
                     {tabItems[activeTab].children}
