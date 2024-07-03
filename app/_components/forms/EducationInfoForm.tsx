@@ -14,6 +14,7 @@ const EducationInfoForm = () => {
             <label>
                 <span style={{ fontWeight: 600 }}>Sertifikat qo’shishdan maqsadingizni tanlang:</span>
                 <Segmented
+                    block
                     defaultValue={applicationType}
                     options={[{
                         label: "Ustama (Xodim, O’qituvchi)",
