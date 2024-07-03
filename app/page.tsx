@@ -171,7 +171,7 @@ export default function MainPage() {
               />
             </div>
             <p>Quyidagi video qo‘llanma orqali ariza yuborish bosqichilari haqida batafsil ma’lumotga ega bo‘ling</p>
-            <YoutubeEmbed embedId="QOEDU3OSVWw" />
+            <YoutubeEmbed embedId="0zXwIpAL7V8" />
           </div>
         </section>
 
