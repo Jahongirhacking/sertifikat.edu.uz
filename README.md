@@ -1,3 +1,24 @@
+# Asosiy sahifa
+![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/27893bc6-3773-40b5-9d5c-35aca0290ff1)
+![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/83ed16fd-f08a-42b1-8e71-850a07e51dfe)
+# Kirish
+![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/04a6ec6d-01d8-49ab-acd7-59859b9d6b70)
+# Ro'yxatdan o'tish
+![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/6fd2e2d0-9019-4a08-a16c-c2b5e90df852)
+![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/527dadf7-1ce5-4441-ab2d-54ca84fe99fc)
+# Shaxsiy ma'lumotlar
+![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/a2ae3cc1-fd8a-4196-a615-904aea3d1682)
+# Arizalarim
+![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/807c09ec-56cf-4e7e-bbc3-f7f5a1412c2a)
+# Sertifikatlarim
+![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/520df32d-1380-4daa-bf1f-f75704c48c85)
+# Ariza ma'lumoti
+![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/cc0bfa7b-9e47-4a73-aac3-ddd1567ddb01)
+# Ariza yaratish
+![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/4f7a5449-b9c4-443a-aefe-067c11feb4d9)
+![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/e8ddeb7c-d038-4455-9cc3-bfda8469b108)
+![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/88cdf6ef-5fa8-4bc5-9fba-295f2c62c6ea)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
