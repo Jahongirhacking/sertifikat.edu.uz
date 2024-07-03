@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Asosiy Sahifa - Sertifikat.edu.uz",
     images: [
       {
-        url: 'https://static9.tgstat.ru/channels/_0/44/4470350d7805a727e882371013d98dfa.jpg',
+        url: '/vazirlik-logo-blue.png',
       },
     ]
   }

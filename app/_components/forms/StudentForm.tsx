@@ -1,4 +1,6 @@
-import { Col, Divider, Flex, Form, Input, Radio, Row, Space, Typography } from "antd";
+import { regions } from "@/app/_utils/staticVariables";
+import { Col, Divider, Flex, Form, Input, Radio, Row, Select, Space, Typography } from "antd";
+import { useState } from "react";
 
 type StudentType = {
     studyPlace?: string;
@@ -9,6 +11,8 @@ type StudentType = {
 }
 
 const StudentForm = () => {
+    const [regionKey, setRegionKey] = useState(-1);
+
     return (
         <Form
             name="student-info"
@@ -43,7 +47,16 @@ const StudentForm = () => {
                             name="region"
                             rules={[{ required: true, message: 'Ta`lim muassasa joylashgan viloyatini tanlang!' }]}
                         >
-                            <Input placeholder="Buxoro" />
+                            <Select
+                                showSearch
+                                placeholder="Buxoro viloyati"
+                                optionFilterProp="label"
+                                onChange={(value) => setRegionKey(value)}
+                                options={regions.map((region, index) => ({
+                                    label: region.name,
+                                    value: index
+                                }))}
+                            />
                         </Form.Item>
                     </Col>
 
@@ -53,7 +66,19 @@ const StudentForm = () => {
                             name="district"
                             rules={[{ required: true, message: 'Ta`lim muassasa joylashgan tumanni tanlang!' }]}
                         >
-                            <Input placeholder="Vobkent" />
+                            <Select
+                                showSearch
+                                placeholder="Vobkent tumani"
+                                optionFilterProp="label"
+                                disabled={regionKey < 0}
+                                options={regionKey >= 0
+                                    ? regions[regionKey].districts.map((district) => ({
+                                        label: district,
+                                        value: district
+                                    }))
+                                    : []
+                                }
+                            />
                         </Form.Item>
                     </Col>
                 </Row>
@@ -65,7 +90,12 @@ const StudentForm = () => {
                             name="institutionName"
                             rules={[{ required: true, message: 'Ta’lim muassasa nomi!' }]}
                         >
-                            <Input placeholder="Raqamli talim" />
+                            <Select
+                                showSearch
+                                placeholder="Raqamli ta’lim"
+                                optionFilterProp="label"
+                                options={[]}
+                            />
                         </Form.Item>
                     </Col>
 
@@ -75,7 +105,12 @@ const StudentForm = () => {
                             name="class"
                             rules={[{ required: true, message: 'Sinfni yozing' }]}
                         >
-                            <Input placeholder="Sinfi" />
+                            <Select
+                                showSearch
+                                placeholder="Sinfi"
+                                optionFilterProp="label"
+                                options={[]}
+                            />
                         </Form.Item>
                     </Col>
                 </Row>
