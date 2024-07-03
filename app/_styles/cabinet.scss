@@ -60,11 +60,30 @@ body {
               }
             }
           }
-          .ant-tabs-tab-btn {
-            width: 100%;
+          .menu-items {
+            .menu-text,
+            svg {
+              color: rgba(#000000, 45%);
+            }
 
-            button {
-              width: 100%;
+            .sign-out-btn {
+              .ant-menu-item {
+                &:hover {
+                  .menu-text,
+                  svg {
+                    color: red;
+                  }
+                }
+              }
+            }
+
+            .ant-menu-item {
+              &-selected {
+                .menu-text,
+                svg {
+                  color: $linkColor;
+                }
+              }
             }
           }
         }

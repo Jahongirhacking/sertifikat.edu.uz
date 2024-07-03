@@ -61,6 +61,66 @@
   max-width: 1000px;
   margin: auto;
 
+  .ant-form {
+    .ant-space {
+      width: 100%;
+    }
+
+    .ant-row {
+      justify-content: space-between;
+    }
+
+    .ant-form-item {
+      .ant-row {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .ant-col {
+          width: 100%;
+          text-align: left;
+
+          .ant-picker {
+            width: 100%;
+          }
+        }
+      }
+
+      &-control {
+        flex: none;
+      }
+
+      .ant-radio-group.gender-radio {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: auto;
+
+        .ant-radio-wrapper {
+          background-color: #f5f5f5;
+          padding: 8px;
+          border-radius: 4px;
+
+          &-checked {
+            background-color: #e6f4ff;
+          }
+        }
+      }
+
+      .ant-radio-group.place {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .ant-segmented-group {
+    justify-content: center;
+
+    .ant-segmented-item {
+      width: 100%;
+    }
+  }
+
   .continue-btn {
     background: $greenGradient;
     transition: 0.6s ease;
