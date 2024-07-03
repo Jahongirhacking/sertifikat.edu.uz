@@ -1,4 +1,4 @@
-![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/1d6aaa16-28e2-4f75-909f-5ffa3c53c85d)# Asosiy sahifa
+# Asosiy sahifa
 ![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/27893bc6-3773-40b5-9d5c-35aca0290ff1)
 ![image](https://github.com/Jahongirhacking/sertifikat.edu.uz/assets/66916141/83ed16fd-f08a-42b1-8e71-850a07e51dfe)
 # Kirish
